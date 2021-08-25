@@ -1,7 +1,7 @@
 ---
 title: "W_UP_01"
-author: "your name here"
-date: "fall 2020"
+author: "Julianne Mercado"
+date: "fall 2021"
 output: html_document
 ---
 
@@ -41,16 +41,40 @@ $H_A$: The average number of pushups done by line players is statistically diffe
 
 <!--Graphical results here. Make sure to show your code. Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too. Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question!-->
 
+
+```{r}
+boxplot(pushups~position,data=mydata)
+```
+
+
+It appears that the skill players do more pushups in 2 minutes than can the line players. 
+
 ### Numerical Descriptive Results
 
 <!--Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question!-->
+
+
+```{r}
+favstats(pushups~position,data=mydata)
+```
+On average the line players did 17 pushups in 2 minutes, and skill players did almost 50 pushups in 2 minutes 
+
 
 ## Inferential Results
 
 <!--State hypothesis clearly. Make sure your discussion of the inferential test covers all the aspects that the test output produces, such as test statistic, p-value etc. Make a decision about the null hypothesis, explain the assumptions on which the selected test/procedure was based, and why the chosen procedure satisfys the assumptions and is appropriate to answer the research question!-->
 
+  
+```{r}
+t.test(pushups~position,data=mydata)
+```
+
+We see the probability of getting the result we found assuming the null hypothesis is true, 0.00000942.   This is so small that we cant justify the null hypothesis; we reject $H_0$
 
 # Discussion and Conclusion
 
 <!--Discussion and conclusion here. If you found a relationship be sure to consider whether the relationship occurs because one of the variavbles causes the other, or whether they perhasps are related for some other reason. Watch the chapter 6 videos from the GeorgeTown videos collection.!-->
 
+In summary, we sought to determine if there was a difference in the average number of pushups that skill players and line players can do in 2 minutes. 
+
+The p-value indicated we reject the null hypothesis, and conclude that Georgetown football line players do, on average, fewer pushups in 2 minutes than skill players 
